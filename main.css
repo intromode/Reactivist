@@ -1,0 +1,19 @@
+ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+li {
+  display: flex;
+  list-style: none;
+  border: solid black 2px;
+  padding: 10px 10px;
+  flex-flow: column wrap;
+  width: 20vw;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  width: 18vw;
+}

@@ -1,0 +1,14 @@
+dl {
+  display: flex;
+  flex-flow: column;
+}
+
+.make-row {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+dt {
+  flex-basis: 8%;
+  min-width: 50px;
+}

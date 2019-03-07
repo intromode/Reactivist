@@ -1,4 +1,4 @@
-import makeRecipeListTemplate from '../src/recipe-list-template.js';
+import { makeRecipeListTemplate } from '../src/recipe-list-template.js';
 const test = QUnit.test;
 
 QUnit.module('recipe list tests');

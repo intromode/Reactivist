@@ -1,8 +1,8 @@
-export default function makeRecipeListTemplate(recipe) {
+export function makeRecipeListTemplate(recipe) {
     const html = `
     <li>
-      <img src="${recipe.image}">
-      <a href="${recipe.url}">${recipe.label}</a>
+      <img src="${recipe.recipe.image}">
+      <a href="${recipe.recipe.url}">${recipe.recipe.label}</a>
     </li>
     `;
     const template = document.createElement('template');
@@ -10,3 +10,13 @@ export default function makeRecipeListTemplate(recipe) {
     const dom = template.content;
     return dom;
 }
+
+const recipeContainer = document.getElementById('recipe-container');
+
+export default function loadRecipes(recipes) {
+    recipes.hits.forEach(recipe => {
+        const dom = makeRecipeListTemplate(recipe);
+        recipeContainer.appendChild(dom);
+    });
+}
+

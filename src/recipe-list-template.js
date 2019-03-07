@@ -1,8 +1,12 @@
 export function makeRecipeListTemplate(recipe) {
+    const uri = recipe.recipe.uri;
+    const indexOfID = uri.indexOf('_');
+    const ID = uri.slice(indexOfID + 1);
+
     const html = `
     <li>
       <img src="${recipe.recipe.image}">
-      <a href="${recipe.recipe.url}">${recipe.recipe.label}</a>
+      <a href="recipe-detail.html#${ID}">${recipe.recipe.label}</a>
     </li>
     `;
     const template = document.createElement('template');

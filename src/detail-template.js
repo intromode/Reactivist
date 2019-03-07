@@ -1,17 +1,25 @@
+
 export function makeRecipeDetailTemplate(recipe){
+    const ingredientsArray = recipe.hits[0].recipe.ingredients;
+    let foodString = '';
+    ingredientsArray.forEach(foodObject => {
+        foodString = foodString + foodObject.food + ', ' ;
+    });
+
+    const pathing = recipe.hits[0].recipe;
     const html = `
     <dl>
     <span class="make-row">
       <dt>Recipe Name</dt>      
-      <dd>${recipe.label}</dd>
+      <dd>${pathing.label}</dd>
     </span>
     <span class="make-row">
       <dt>Ingredients</dt>
-      <dd>${recipe.ingredients}</dd>
+      <dd>${foodString}</dd>
     </span>
     <span class="make-row">
       <dt>Recipe Link</dt>
-      <dd>${recipe.url}</dd>
+      <dd><a href="${pathing.url}">How to make ${pathing.label}</dd>
     </span>
     </dl>
     `;
@@ -19,4 +27,12 @@ export function makeRecipeDetailTemplate(recipe){
     template.innerHTML = html;
     const dom = template.content;
     return dom;
+
+}
+
+const detailsContainer = document.getElementById('detail-container');
+
+export default function loadDetails(recipe) {
+    const dom = makeRecipeDetailTemplate(recipe);
+    detailsContainer.appendChild(dom);
 }

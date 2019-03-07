@@ -1,13 +1,11 @@
+import recipe from '../data/test-data.js';
 import { makeRecipeListTemplate } from '../src/recipe-list-template.js';
 const test = QUnit.test;
 
-QUnit.module('recipe list tests');
+const testRecipe = {
+}
 
-const recipe = {
-    image: 'https://www.edamam.com/web-img/315/315bbfb86606944ddb05a35a0714e2de.jpg',
-    url: 'recipe-detail.html',
-    label: 'Vegan Salted Butter Caramel Sauce'
-};
+QUnit.module('recipe list tests');
 
 test('Create List Template', assert => {
     //arrange
@@ -19,7 +17,7 @@ test('Create List Template', assert => {
     `;
 
     //act
-    const result = makeRecipeListTemplate(recipe);
+    const result = makeRecipeListTemplate(testRecipe);
 
     //assert
     assert.htmlEqual(result, expected);

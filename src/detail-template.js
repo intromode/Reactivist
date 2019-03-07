@@ -2,11 +2,15 @@
 export function makeRecipeDetailTemplate(recipe){
     const ingredientsArray = recipe.hits[0].recipe.ingredients;
     let foodString = '';
+
     ingredientsArray.forEach(foodObject => {
         foodString = foodString + foodObject.food + ', ' ;
     });
 
+    foodString = foodString.slice(0, foodString.length - 2);
+
     const pathing = recipe.hits[0].recipe;
+
     const html = `
     <dl>
     <span class="make-row">

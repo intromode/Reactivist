@@ -18,6 +18,10 @@ export function makeRecipeListTemplate(recipe) {
 const recipeContainer = document.getElementById('recipe-container');
 
 export default function loadRecipes(recipes) {
+    while(recipeContainer.children.length > 0) {
+        recipeContainer.lastElementChild.remove();
+    }
+
     recipes.hits.forEach(recipe => {
         const dom = makeRecipeListTemplate(recipe);
         recipeContainer.appendChild(dom);
